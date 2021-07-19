@@ -1,12 +1,27 @@
 
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Brewery</span>
+    <form #data="ngForm" class="d-flex">
+      <input class="form-control me-2" type="search" id="info" name="info" ngModel placeholder="Search Brewery">
+      <button class="btn btn-outline-dark" type="submit" (click)="SearchBrewery(data)">Search</button>
+    </form>
+  </div>
+
+</nav>
+
 <div class="container-fluid mt-5">
 <form #data="ngForm" >
 <div class="col-sm-10 container-fluid ">
-  <input type="text" class="form-control" id="info" name="info" required ngModel > <br>
+  <input type="text" class="form-control mb-4" id="info" name="info" required ngModel > 
+  
   <div >
-  <button  [disabled]="!data.valid" (click)="GetByCity(data)" class="btn btn-dark">Get By City</button>  &nbsp;
-  <button  [disabled]="!data.valid" (click)="GetByState(data)" class="btn btn-dark">Get By State</button>&nbsp;
-  <button  [disabled]="!data.valid" (click)="GetByType(data)" class="btn btn-dark">Get By Brewery Type</button>&nbsp;
+    
+    <button  [disabled]="!data.valid" (click)="GetBrewery(data)" class="btn btn-dark mx-1">Get Brewery</button>  
+  <button  [disabled]="!data.valid" (click)="GetByCity(data)" class="btn btn-dark mx-1">Get By City</button>  
+  <button  [disabled]="!data.valid" (click)="GetByState(data)" class="btn btn-dark mx-1">Get By State</button>
+  <button  [disabled]="!data.valid" (click)="GetByType(data)" class="btn btn-dark mx-1">Get By Brewery Type</button>
+  <button  [disabled]="!data.valid" (click)="GetByPostal(data)" class="btn btn-dark mx-1">Get By Postal</button>
 </div>
 </div>
 </form>
@@ -14,7 +29,8 @@
 
 <div class="container-fluid">
 <table class="table table-striped caption-top table-hover ">
-  <caption>Breweries</caption>
+  <caption>Brewery Details</caption>
+  
   <thead class="table-dark">
     <tr>
       <th>Id</th>
@@ -29,7 +45,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let a of breweriesList">
+   
+    <tr  *ngFor="let a of breweriesList ">
      <td>{{a.id}}</td>
      <td>{{a.name}}</td>
      <td>{{a.brewery_type}}</td>
@@ -42,5 +59,6 @@
     </tr>
   </tbody>
 </table>
+
 
 </div>

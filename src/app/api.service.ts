@@ -12,6 +12,20 @@ export class APIService {
     return this.http.get("https://api.openbrewerydb.org/breweries");
   }
 
+  getByBrewery(data:any){
+  
+    return this.http.get("https://api.openbrewerydb.org/breweries/"+data )
+  }
+
+  SearchBrewery(data:any){
+    let httpParams =new HttpParams ({
+      fromObject:{
+        query:data
+      }
+    });
+    return this.http.get("https://api.openbrewerydb.org/breweries/search" ,{params:httpParams})
+  }
+
   getDetailsByCity(data:any){
     let httpParams =new HttpParams ({
       fromObject:{
@@ -25,7 +39,7 @@ export class APIService {
     let httpParams =new HttpParams ({
       fromObject:{
         by_state:data 
-        
+
       }
     });
     return this.http.get("https://api.openbrewerydb.org/breweries" ,{params:httpParams})
@@ -40,4 +54,14 @@ export class APIService {
     });
     return this.http.get("https://api.openbrewerydb.org/breweries" ,{params:httpParams})
   }
+
+  getDetailsByPostal(data:any){
+    let httpParams =new HttpParams ({
+      fromObject:{
+        by_postal:data
+      }
+    });
+    return this.http.get("https://api.openbrewerydb.org/breweries" ,{params:httpParams})
+  }
+
 }

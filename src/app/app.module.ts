@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
