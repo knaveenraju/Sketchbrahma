@@ -2,9 +2,9 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">Brewery</span>
-    <form #data="ngForm" class="d-flex">
+    <form #data1="ngForm" class="d-flex">
       <input class="form-control me-2" type="search" id="info" name="info" ngModel placeholder="Search Brewery">
-      <button class="btn btn-outline-dark" type="submit" (click)="SearchBrewery(data)">Search</button>
+      <button class="btn btn-outline-dark" type="submit" (click)="SearchBrewery(data1)">Search</button>
     </form>
   </div>
 
@@ -18,9 +18,9 @@
   <div >
     
     <button  [disabled]="!data.valid" (click)="GetBrewery(data)" class="btn btn-dark mx-1">Get Brewery</button>  
+    <button  [disabled]="!data.valid" (click)="GetByType(data)" class="btn btn-dark mx-1">Get By Brewery Type</button>
   <button  [disabled]="!data.valid" (click)="GetByCity(data)" class="btn btn-dark mx-1">Get By City</button>  
   <button  [disabled]="!data.valid" (click)="GetByState(data)" class="btn btn-dark mx-1">Get By State</button>
-  <button  [disabled]="!data.valid" (click)="GetByType(data)" class="btn btn-dark mx-1">Get By Brewery Type</button>
   <button  [disabled]="!data.valid" (click)="GetByPostal(data)" class="btn btn-dark mx-1">Get By Postal</button>
 </div>
 </div>

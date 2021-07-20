@@ -17,11 +17,11 @@ export class AppComponent implements OnInit {
 
 
 }
-SearchBrewery(data:NgForm){
-  console.log(data.value.info);
-   this.dataFromService.SearchBrewery(data.value.info).subscribe(data=> this.breweriesList=data)
+SearchBrewery(data1:NgForm){
+  console.log(data1.value.info);
+   this.dataFromService.SearchBrewery(data1.value.info).subscribe(data=> this.breweriesList=data)
    console.log(this.breweriesList);
-   data.reset();  
+   data1.reset();  
   }
 
 GetByCity(data:NgForm){
@@ -52,11 +52,14 @@ GetByState(data:NgForm){
 
   GetBrewery(data:NgForm){
     console.log(data.value.info);
-    this.dataFromService.getByBrewery(data.value.info).subscribe(data => this.breweriesList=data)
+    this.dataFromService.getByBrewery(data.value.info).subscribe(data => {
+      let a=[];
+      a.push(data);
+      this.breweriesList=a;
+
+    })
     
-    setTimeout(() => {
-      console.log(this.breweriesList);
-    }, 1000);
+  
     data.reset();  
   }
 
